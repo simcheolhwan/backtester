@@ -12,6 +12,8 @@ interface DefaultParams {
   end: string
 }
 
+const FMT = 'yyyy-MM-dd'
+
 /* 주식 */
 interface SymbolParams extends DefaultParams {
   history: HistoryData
@@ -28,7 +30,7 @@ const symbol = (params: SymbolParams): Table => {
   const calc = (acc: Table, date: string): Table => {
     const { month } = DateTime.fromISO(date)
     const { times } = Frequencies[frequency]
-    const r = times === 1 ? 1 : month % times === 1 ? times : 0
+    const r = !(month % times) ? times : 0
     const money = seed * r
 
     const prev = last(acc)
@@ -42,9 +44,9 @@ const symbol = (params: SymbolParams): Table => {
     }
 
     const table = [...acc, row]
-    const next = DateTime.fromISO(date).plus({ months: 1 })
-    const now = DateTime.fromISO(end)
-    return next < now ? calc(table, next.toFormat('yyyy-MM-dd')) : table
+    const nextDT = DateTime.fromISO(date).plus({ months: 1 })
+    const endDT = DateTime.fromISO(end)
+    return nextDT < endDT ? calc(table, nextDT.toFormat(FMT)) : table
   }
 
   return round(calc([], start))
@@ -65,9 +67,9 @@ const saving = ({ seed, interest, start, end }: SavingParams): Table => {
     }
 
     const table = [...acc, row]
-    const next = DateTime.fromISO(date).plus({ months: 1 })
-    const now = DateTime.fromISO(end)
-    return next < now ? calc(table, next.toFormat('yyyy-MM-dd')) : table
+    const nextDT = DateTime.fromISO(date).plus({ months: 1 })
+    const endDT = DateTime.fromISO(end)
+    return nextDT < endDT ? calc(table, nextDT.toFormat(FMT)) : table
   }
 
   return round(calc([], start))
@@ -77,12 +79,13 @@ export default { symbol, saving }
 
 /* helpers */
 const round = (table: Table): Table =>
-  table.map(({ stocks, value, balance, ...rest }) =>
+  table.map(({ principal, stocks, value, balance, ...rest }) =>
     Object.assign(
       {},
       rest,
-      stocks && { stocks: Math.round(stocks) },
-      value && { value: Math.round(value) },
-      balance && { balance: Math.round(balance) }
+      !!principal && { principal: Math.round(principal) },
+      !!stocks && { stocks: Math.round(stocks) },
+      !!value && { value: Math.round(value) },
+      !!balance && { balance: Math.round(balance) }
     )
   )

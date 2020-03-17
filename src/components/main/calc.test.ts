@@ -32,15 +32,15 @@ test('매분기', () => {
   }
 
   const output = [
-    { date: '2019-07-01', principal: 3000, stocks: 11, value: 3000 },
-    { date: '2019-08-01', principal: 3000, stocks: 11, value: 3011 },
-    { date: '2019-09-01', principal: 3000, stocks: 11, value: 2934 },
-    { date: '2019-10-01', principal: 6000, stocks: 22, value: 6011 },
-    { date: '2019-11-01', principal: 6000, stocks: 22, value: 6165 },
-    { date: '2019-12-01', principal: 6000, stocks: 22, value: 6363 },
-    { date: '2020-01-01', principal: 9000, stocks: 32, value: 9539 },
-    { date: '2020-02-01', principal: 9000, stocks: 32, value: 9539 },
-    { date: '2020-03-01', principal: 9000, stocks: 32, value: 8801 }
+    { date: '2019-07-01' },
+    { date: '2019-08-01' },
+    { date: '2019-09-01', principal: 3000, stocks: 11, value: 3000 },
+    { date: '2019-10-01', principal: 3000, stocks: 11, value: 3079 },
+    { date: '2019-11-01', principal: 3000, stocks: 11, value: 3158 },
+    { date: '2019-12-01', principal: 6000, stocks: 22, value: 6259 },
+    { date: '2020-01-01', principal: 6000, stocks: 22, value: 6433 },
+    { date: '2020-02-01', principal: 6000, stocks: 22, value: 6433 },
+    { date: '2020-03-01', principal: 9000, stocks: 33, value: 8935 }
   ]
 
   expect(calc.symbol(input)).toEqual(output)
@@ -56,33 +56,33 @@ test('매년', () => {
   }
 
   const output = [
-    { date: '2018-01-01', principal: 12000, stocks: 49, value: 12000 },
-    { date: '2018-02-01', principal: 12000, stocks: 49, value: 12585 },
-    { date: '2018-03-01', principal: 12000, stocks: 49, value: 12146 },
-    { date: '2018-04-01', principal: 12000, stocks: 49, value: 11756 },
-    { date: '2018-05-01', principal: 12000, stocks: 49, value: 11805 },
-    { date: '2018-06-01', principal: 12000, stocks: 49, value: 12195 },
-    { date: '2018-07-01', principal: 12000, stocks: 49, value: 12049 },
-    { date: '2018-08-01', principal: 12000, stocks: 49, value: 12585 },
-    { date: '2018-09-01', principal: 12000, stocks: 49, value: 12976 },
-    { date: '2018-10-01', principal: 12000, stocks: 49, value: 13073 },
-    { date: '2018-11-01', principal: 12000, stocks: 49, value: 12146 },
-    { date: '2018-12-01', principal: 12000, stocks: 49, value: 12537 },
-    { date: '2019-01-01', principal: 24000, stocks: 102, value: 23024 },
-    { date: '2019-02-01', principal: 24000, stocks: 102, value: 25266 },
-    { date: '2019-03-01', principal: 24000, stocks: 102, value: 26183 },
-    { date: '2019-04-01', principal: 24000, stocks: 102, value: 26590 },
-    { date: '2019-05-01', principal: 24000, stocks: 102, value: 27507 },
-    { date: '2019-06-01', principal: 24000, stocks: 102, value: 25673 },
-    { date: '2019-07-01', principal: 24000, stocks: 102, value: 27711 },
-    { date: '2019-08-01', principal: 24000, stocks: 102, value: 27813 },
-    { date: '2019-09-01', principal: 24000, stocks: 102, value: 27100 },
-    { date: '2019-10-01', principal: 24000, stocks: 102, value: 27813 },
-    { date: '2019-11-01', principal: 24000, stocks: 102, value: 28526 },
-    { date: '2019-12-01', principal: 24000, stocks: 102, value: 29443 },
-    { date: '2020-01-01', principal: 36000, stocks: 142, value: 42258 },
-    { date: '2020-02-01', principal: 36000, stocks: 142, value: 42258 },
-    { date: '2020-03-01', principal: 36000, stocks: 142, value: 38985 }
+    { date: '2018-01-01' },
+    { date: '2018-02-01' },
+    { date: '2018-03-01' },
+    { date: '2018-04-01' },
+    { date: '2018-05-01' },
+    { date: '2018-06-01' },
+    { date: '2018-07-01' },
+    { date: '2018-08-01' },
+    { date: '2018-09-01' },
+    { date: '2018-10-01' },
+    { date: '2018-11-01' },
+    { date: '2018-12-01', principal: 12000, stocks: 47, value: 12000 },
+    { date: '2019-01-01', principal: 12000, stocks: 47, value: 10553 },
+    { date: '2019-02-01', principal: 12000, stocks: 47, value: 11580 },
+    { date: '2019-03-01', principal: 12000, stocks: 47, value: 12000 },
+    { date: '2019-04-01', principal: 12000, stocks: 47, value: 12187 },
+    { date: '2019-05-01', principal: 12000, stocks: 47, value: 12607 },
+    { date: '2019-06-01', principal: 12000, stocks: 47, value: 11767 },
+    { date: '2019-07-01', principal: 12000, stocks: 47, value: 12700 },
+    { date: '2019-08-01', principal: 12000, stocks: 47, value: 12747 },
+    { date: '2019-09-01', principal: 12000, stocks: 47, value: 12420 },
+    { date: '2019-10-01', principal: 12000, stocks: 47, value: 12747 },
+    { date: '2019-11-01', principal: 12000, stocks: 47, value: 13074 },
+    { date: '2019-12-01', principal: 24000, stocks: 88, value: 25494 },
+    { date: '2020-01-01', principal: 24000, stocks: 88, value: 26200 },
+    { date: '2020-02-01', principal: 24000, stocks: 88, value: 26200 },
+    { date: '2020-03-01', principal: 24000, stocks: 88, value: 24171 }
   ]
 
   expect(calc.symbol(input)).toEqual(output)
