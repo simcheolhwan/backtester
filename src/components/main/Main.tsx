@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react'
-import { equals, remove } from 'ramda'
+import { equals, remove, sortWith, prop, descend } from 'ramda'
 import { createContext, getYear } from '../../utils'
 import { useApp } from '../App'
 import { Type, Comparison } from './helpers'
@@ -48,10 +48,11 @@ const Main = () => {
     localStorage.setItem('start', String(start))
   }, [comparisons, start])
 
-  /* 비교: 중복 걸러내기 */
+  /* 비교: 중복 걸러내고 정렬하기 */
   const addComparison = (comparison: Comparison) => {
     const valid = comparisons.every(c => !equals(c, comparison))
-    valid && setComparisons(comparisons.concat(comparison))
+    const sort = sortWith([descend(prop('type'))])
+    valid && setComparisons(sort(comparisons.concat(comparison)))
   }
 
   const deleteComparison = (index: number) => {
