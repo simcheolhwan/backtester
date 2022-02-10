@@ -20,7 +20,7 @@
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
     "luxon": "^1.22.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "numeral": "^2.0.6",
     "qs": "^6.9.1",
     "ramda": "^0.27.0",
