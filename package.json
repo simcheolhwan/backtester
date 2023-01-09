@@ -19,7 +19,7 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "classnames": "^2.2.6",
-    "luxon": "^1.22.0",
+    "luxon": "^1.28.1",
     "node-sass": "^4.13.1",
     "numeral": "^2.0.6",
     "qs": "^6.9.1",
